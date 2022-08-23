@@ -21,20 +21,20 @@ int *ponteiro;  //Ponteiro que aponta para a locação de memória
 
 void construtorFila(struct fila *f,int tamanho){
 
-f->topo = -1;
-f->primeiro = -1;
-f->cap = tamanho;      //n° de elementos 
-f->ponteiro = (int*)malloc(tamanho*(sizeof(int))); /*Memory Allocation, a função malloc recebe como parâmetro o número de bytes
-                                                  que irá alocar na memória (por isso o: "sizeof(int)""), porém como esta função retorna o 
-                                                  endereço do bloco de memória, é necessário fazer um cast: (int*) para que um ponteiro de mesmo tipo 
-                                                  receba esse endereço. */
-if(f->ponteiro == NULL){
-    printf("A alocação na memoria não funcionou, nao exite espaço na memória");
-}
-
-for(int i = 0;i<tamanho;i++){
-  f->ponteiro[i]=0;
-}
+  f->topo = -1;
+  f->primeiro = -1;
+  f->cap = tamanho;      //n° de elementos 
+  f->ponteiro = (int*)malloc(tamanho*(sizeof(int))); /*Memory Allocation, a função malloc recebe como parâmetro o número de bytes
+                                                    que irá alocar na memória (por isso o: "sizeof(int)""), porém como esta função retorna o 
+                                                    endereço do bloco de memória, é necessário fazer um cast: (int*) para que um ponteiro de mesmo tipo 
+                                                    receba esse endereço. */
+  if(f->ponteiro == NULL){
+      printf("A alocação na memoria não funcionou, nao exite espaço na memória");
+  }
+  
+  for(int i = 0;i<tamanho;i++){  //Inserindo valores 0 na fila
+    f->ponteiro[i]=0;
+  }
 
 }
 
